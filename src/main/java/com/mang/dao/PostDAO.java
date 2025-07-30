@@ -31,7 +31,7 @@ public class PostDAO {
                     p.setBody(rs.getString("body"));
                     p.setUsername(rs.getString("username"));
                     p.setStatus(rs.getString("status"));
-                    p.setcreated_at(rs.getString("created_at"));
+                    p.setCreatedAt(rs.getTimestamp("created_at"));
                     list.add(p);
                 }
             }

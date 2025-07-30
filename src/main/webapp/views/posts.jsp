@@ -80,6 +80,11 @@
 </head>
 <body>
 
+<form action="${pageContext.request.contextPath}/search" method="get" style="display: flex;">
+            <input type="text" name="keyword" placeholder="Tìm bài viết..." style="padding: 5px; border: 1px solid #ddd;">
+            <button type="submit" style="padding: 5px 10px; background: #1da1f2; color: white; border: none;">Tìm kiếm</button>
+        </form>
+        
 <h2>Danh sach bai viet</h2>
 
 <%
@@ -91,7 +96,7 @@
         <i><%=p.getTitle()%></i>
         <p><%=p.getBody()%></p>
         <p><strong>Trang thai:</strong> <%=p.getStatus()%></p>
-        <p><small><%=p.getCreated_at()%></small></p>
+        <p><small><%=p.getCreatedAt()%></small></p>
     </div>
 <% } %>
 
