@@ -42,7 +42,7 @@
 
     <h2>Chao moi nguoi</h2>
     <a href="<%=request.getContextPath()%>/posts">Xem bai viet</a>
-	<a href="<%=request.getContextPath()%>/form_post">Dang bai</a>
+	<a href="<%=request.getContextPath()%>/views/form_post.jsp">Dang bai</a>
 	<a href="<%=request.getContextPath()%>/following">Danh sach theo doi</a>	
 </body>
 </html>
