@@ -52,4 +52,3 @@ public class Post {
         this.created_at = created_at;
     }
 }
-    

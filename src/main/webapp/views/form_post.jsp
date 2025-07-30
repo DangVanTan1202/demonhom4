@@ -6,3 +6,4 @@
     <input type="submit" value="dang bai" />
 </form>
 <a href="<%=request.getContextPath()%>/posts">Xem bai viet</a>
+<a href="index.jsp">Trang chủ</a>

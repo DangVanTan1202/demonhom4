@@ -16,3 +16,4 @@
     </div>
 <% } %>
 <a href="<%=request.getContextPath()%>/views/form_post.jsp">dang bai viet </a>
+<a href="index.jsp">Trang chủ</a>
