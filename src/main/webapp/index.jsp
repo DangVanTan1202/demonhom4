@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,13 +38,60 @@
         a:hover {
             background-color: #2980b9;
         }
+        
+        .app-header {
+            background-color: white;
+            border-bottom: 1px solid #e6ecf0;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .username-display {
+            margin-right: 15px;
+            font-weight: bold;
+            color: #1da1f2;
+        }
+        
+        .logout-btn {
+            background-color: #e0245e;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Chao moi nguoi</h2>
-    <a href="<%=request.getContextPath()%>/posts">Xem bai viet</a>
-	<a href="<%=request.getContextPath()%>/views/form_post.jsp">Dang bai</a>
-	<a href="<%=request.getContextPath()%>/following">Danh sach theo doi</a>	
+    <h2>Social DEMO</h2>
+    <c:if test="${not empty sessionScope.currentUser}">
+        <div class="app-header">
+            <div class="user-info">
+                <span class="username-display">
+                    Xin chào, ${sessionScope.currentUser.username}!
+                </span>
+                <a href="logout" class="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <a href="<%=request.getContextPath()%>/posts">Xem bài viết</a>
+        <a href="<%=request.getContextPath()%>/views/form_post.jsp">Đăng bài</a>
+        <a href="<%=request.getContextPath()%>/following">Danh sách theo dõi</a>    
+    </c:if>
+
+    <c:if test="${empty sessionScope.currentUser}">
+        <a href="<%=request.getContextPath()%>/login">Đăng nhập</a>
+    </c:if>	
 </body>
 </html>

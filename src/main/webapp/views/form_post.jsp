@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,29 +98,30 @@
 </head>
 <body>
 
-<h2>dang bai viet</h2>
+<h2>Đăng bài viết</h2>
 
 <div class="form-container">
     <form method="post" action="<%=request.getContextPath()%>/posts">
         <div class="form-group">
-            <label for="title">Tieu de:</label>
+            <label for="title">Tiêu đề:</label>
             <input type="text" id="title" name="title" required />
         </div>
 
         <div class="form-group">
-            <label for="body">Noi dung:</label>
+            <label for="body">Nội dung:</label>
             <textarea id="body" name="body" rows="5" required></textarea>
         </div>
 
         <div class="form-actions">
-            <input type="submit" value="dang bai " />
+            <input type="submit" value="Đăng bài " />
         </div>
     </form>
 </div>
 
 <div class="links">
-    <a href="<%=request.getContextPath()%>/posts">Xem bai viet</a>
-    <a href="following.jsp">Xem nguoi dang theo doi </a>
+    <a href="<%=request.getContextPath()%>/posts">Xem bài viết</a>
+    <a href="following.jsp">Xem người đang theo dõi</a>
+    <a href="${pageContext.request.contextPath}/" class="btn">Trang chủ</a>
 </div>
 
 </body>

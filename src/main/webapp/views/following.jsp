@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Danh sach dang theo doi</title>
+    <title>Danh sách đang theo dõi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
         ul {
             list-style-type: none;
             padding: 0;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -33,38 +33,68 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: background-color 0.2s ease;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         li:hover {
             background-color: #e6f0ff;
         }
 
-        a {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            text-decoration: none;
-            color: #007bff;
+        .follow-btn {
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 14px;
+            cursor: pointer;
             font-weight: bold;
+            font-size: 14px;
+        }
+
+        .follow-btn:hover {
+            background-color: #0d8bd9;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #3498db;
+            font-weight: bold;
+            text-decoration: none;
             transition: color 0.2s;
         }
 
-        a:hover {
-            color: #0056b3;
+        .links a:hover {
+            color: #1f5f8b;
         }
     </style>
 </head>
 <body>
 
-<h2>Danh sach nguoi ban dang theo doi</h2>
+<h2>Danh sách người bạn đang theo dõi</h2>
 
 <ul>
     <c:forEach var="u" items="${followedUsers}">
-        <li>${u.username}</li>
+        <li>
+            ${u.username}
+            <button class="follow-btn" type="button">Follow</button>
+        </li>
     </c:forEach>
 </ul>
 
-<a href="posts">xem bai viet</a>
+<div class="links">
+    <a href="<%=request.getContextPath()%>/views/form_post.jsp">Đăng bài viết</a>
+    <a href="posts">Xem bài viết</a>
+    <a href="${pageContext.request.contextPath}/" class="btn">Trang chủ</a>
+</div>
 
 </body>
 </html>

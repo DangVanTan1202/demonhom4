@@ -2,11 +2,15 @@ package com.mang.controller;
 
 import com.mang.dao.PostDAO;
 import com.mang.model.Post;
+import com.mang.model.User;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/posts")
@@ -24,15 +28,19 @@ public class PostServelet {
         return "posts"; // sẽ hiển thị file /views/posts.jsp
     }
 
-    @PostMapping
-    public String addPost(@RequestParam("title") String title,
-                          @RequestParam("body") String body) {
-        try {
-            PostDAO dao = new PostDAO();
-            dao.addPost(title, body);
-        } catch (Exception e) {
-            e.printStackTrace();
+    @PostMapping("/post")
+    public String createPost(
+            @RequestParam("title") String title,
+            @RequestParam("body") String body,
+            HttpSession session) throws Exception {
+        
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser == null) {
+            return "redirect:/login";
         }
+        
+        PostDAO postDao = new PostDAO();
+        postDao.addPost(title, body, currentUser.getId());
         return "redirect:/posts";
     }
 }

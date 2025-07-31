@@ -1,10 +1,22 @@
 package com.mang.model;
 
+import java.sql.Timestamp;
+
 public class User {
     private int id;
     private String username;
+    private String role;
+    private Timestamp createdAt;
 
-    // getter/setter
+    // Constructors
+    public User() {}
+
+    public User(int id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -19,5 +31,21 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 }

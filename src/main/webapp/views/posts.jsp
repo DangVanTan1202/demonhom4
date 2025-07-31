@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.mang.model.Post" %>
 <%@ page import="java.util.*" %>
 
@@ -5,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Danh sach bai viett</title>
+    <title>Danh sách bài viết</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -139,14 +140,14 @@
 </head>
 <body>
         
-<h2>Danh sach bai viet</h2>
+<h2>Danh sách bài viết</h2>
 <div class="header">
         <div style="display: flex; gap: 10px;">
         <form action="${pageContext.request.contextPath}/search" method="get" style="display: flex;">
-            <input type="text" name="keyword" placeholder="Tim bai viet..." style="padding: 5px; border: 1px solid #ddd;">
-            <button type="submit" style="padding: 5px 10px; background: #1da1f2; color: white; border: none;">Tim kiem</button>
+            <input type="text" name="keyword" placeholder="Tim bài viết..." style="padding: 5px; border: 1px solid #ddd;">
+            <button type="submit" style="padding: 5px 10px; background: #1da1f2; color: white; border: none;">Tìm kiếm</button>
         </form>
-        <a href="${pageContext.request.contextPath}/" class="btn">Trang chu</a>
+        <a href="${pageContext.request.contextPath}/" class="btn">Trang chủ</a>
     </div>       
     </div>
 <%
@@ -157,14 +158,15 @@
         <b><%=p.getUsername()%></b>
         <i><%=p.getTitle()%></i>
         <p><%=p.getBody()%></p>
-        <p><strong>Trang thai:</strong> <%=p.getStatus()%></p>
+        <p><strong>Trạng thái:</strong> <%=p.getStatus()%></p>
         <p><small><%=p.getCreatedAt()%></small></p>
     </div>
 <% } %>
 
 <div class="actions">
-    <a href="<%=request.getContextPath()%>/views/form_post.jsp">dang bai viet</a>
-    <a href="following">Xem nguoi dang theo doi</a>
+    <a href="<%=request.getContextPath()%>/views/form_post.jsp">Đăng bài viết</a>
+    <a href="following">Xem người đang theo dõi</a>
+    <a href="${pageContext.request.contextPath}/" class="btn">Trang chủ</a>
 </div>
 
 </body>
